@@ -12,7 +12,7 @@ using music_store.src.data;
 namespace music_store.Migrations
 {
     [DbContext(typeof(DbConnectionContext))]
-    [Migration("20240303085707_InitialCreate")]
+    [Migration("20240304103814_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

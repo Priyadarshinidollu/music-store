@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 
 namespace music_store.src.user.interfaces;
 

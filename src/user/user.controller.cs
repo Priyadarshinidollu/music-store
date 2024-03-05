@@ -93,17 +93,32 @@ public class UserController : ControllerBase
     return Ok("User Created");
   }
 
-  [HttpPost("testtoken"), Authorize]
+  [HttpPost("testtoken"), Authorize(Roles = "Admin,User")]
   public IActionResult Testtoken([FromBody] string Name)
   {
-    var result = string.Empty;
+    var result = Guid.Empty;
     if (_httpContextAccessor.HttpContext is not null)
     {
-      result = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
+      var token = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
+      Console.WriteLine("Received Token: " + token);
+
+      var userIdString = _httpContextAccessor.HttpContext.User.FindFirstValue("userId");
+
+      if (!string.IsNullOrEmpty(userIdString) && Guid.TryParse(userIdString, out Guid userId))
+      {
+        result = userId;
+      }
+      else
+      {
+        return BadRequest("Invalid or missing userId in the token.");
+      }
     }
-    Console.WriteLine(Name);
+    Console.WriteLine($"User not found for UserId: {_userService.GetUserById(result)}");
+
     return Ok(result);
   }
+
+
 
 }
 

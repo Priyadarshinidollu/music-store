@@ -27,10 +27,22 @@ public class UserRepository : IUserRepository
 
   }
 
-  public UserEntity? GetUserById(Guid UserId)
+  public UserEntity? GetUserById(Guid userId)
   {
-    return _db.User.Find(UserId);
+    var user = _db.User.Find(userId);
+
+    if (user != null)
+    {
+      Console.WriteLine($"User found: UserId = {user.UserId}, Username = {user.Username}");
+    }
+    else
+    {
+      Console.WriteLine($"User not found for UserId: {userId}");
+    }
+
+    return user;
   }
+
 
   public UserEntity? GetUserByEmail(string email)
   {

@@ -161,3 +161,4 @@ D:\priya-projects\music_store\bin\Debug\net8.0\Microsoft.AspNetCore.Authenticati
 D:\priya-projects\music_store\bin\Debug\net8.0\Scrutor.dll
 D:\priya-projects\music_store\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.dll
 D:\priya-projects\music_store\bin\Debug\net8.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
+D:\priya-projects\music_store\obj\Debug\net8.0\music_store.sourcelink.json
