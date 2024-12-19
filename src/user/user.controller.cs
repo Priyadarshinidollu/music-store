@@ -38,8 +38,16 @@ public class UserController : ControllerBase
     return Ok(user);
   }
 
+    [HttpGet("test_api")]
+    public IActionResult GetUser(Guid id)
+    {
+       
 
-  [HttpPost("login")]
+        return Ok("API WORKING ");
+    }
+
+
+    [HttpPost("login")]
   public IActionResult Login([FromBody] UserLoginDto loginRequest)
   {
     var user = _userService.ValidateUserCredentials(loginRequest.Email, loginRequest.Password);
