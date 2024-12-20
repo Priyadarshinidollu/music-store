@@ -41,8 +41,8 @@ public class UserController : ControllerBase
     [HttpGet("test_api")]
     public IActionResult GetUser(Guid id)
     {
-       
 
+        Console.WriteLine("HELLO FROM TEST EROUTE");
         return Ok("API WORKING ");
     }
 
